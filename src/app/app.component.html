@@ -1,11 +1,11 @@
-<div id="appContainer">
-  <div class="row align-items-center h-100">
+<div id="appContainer" >
+  <div class="row align-items-center h-100" style="background-color: white;">
     <div class="col-md-5 col-sm-10 mx-auto">
 
       <div id="cardStyle" class="card justify-content-center">
         <div>
-          <button class="btn" [class.btn-light]="flag" type="button" style="width: 50%;" (click)="apply('login')" >Login</button>
-          <button class="btn" [class.btn-light]="!flag" type="button" style="width: 50%;" (click)="apply('reg')" >Register</button>
+          <button class="btn btn-primary" [class.btn-light]="flag" type="button" style="width: 50%;" (click)="apply('login')" >Login</button>
+          <button class="btn btn-primary" [class.btn-light]="!flag" type="button" style="width: 50%;" (click)="apply('reg')" >Register</button>
         </div>
 
         <div class="card-body">
