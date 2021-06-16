@@ -41,21 +41,19 @@ export class LoginComponent implements OnInit {
           //add rounting
 
         }
+        else {
+          this.SpinnerService.hide();
+        }
       },
         (err) => {
-
+          this.SpinnerService.hide();
         }, () => {
-
+          this.SpinnerService.hide();
         });
-      setTimeout(() => {
-        this.SpinnerService.hide();
-      }, 10000);
+
     }
     if (!isAdmin) {
-      this.SpinnerService.show();
-      setTimeout(() => {
-        this.SpinnerService.hide();
-      }, 10000);
+
     }
   }
   adminlogin() {
