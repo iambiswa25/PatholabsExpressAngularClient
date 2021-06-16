@@ -1,7 +1,7 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <form [formGroup]="loginForm" (ngSubmit)="userlogin()">
+            <form [formGroup]="loginForm" >
 
                 <div class="form-group">
                     <label for="email" class='fa fa-envelope'></label>
@@ -16,10 +16,61 @@
                 </div>
 
                 <div class="text-center">
-                    <button id="submitButton" type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Login</button>
+                    <button id="submitButton" type="submit" class="btn btn-primary" [disabled]="!loginForm.valid" (click)="userlogin()">Login</button>
                 </div>
                 <div class="text-center text-success" *ngIf="successMessage">{{successMessage}}</div>
 
+            </form>
+        </div>
+    </div>
+</div> -->
+
+<div class="container login-container">
+    <div class="row">
+        <div class="col-md-6 login-form-1" style="background-color: white;">
+            <h3>Admin Login</h3>
+            <form [formGroup]="loginForm" >
+                <div class="form-group">
+                    <!-- <input type="text" class="form-control" placeholder="Your Email *" value="" /> -->
+                    <label for="email" class='fa fa-envelope'></label>
+                    <input type="email" placeholder="Email Address" formControlName="email"  maxlength="40">
+                    <span class="text-danger" *ngIf="loginForm.controls.email.errors && loginForm.controls.email.touched"><br>Invalid Email Address</span>
+                </div>
+                <div class="form-group">
+                    <!-- <input type="password" class="form-control" placeholder="Your Password *" value="" /> -->
+                    <label for="password" class="fa fa-lock"> </label>
+                    <input type="password" placeholder="Password" formControlName="password"  maxlength="20">
+                    <span class="text-danger" *ngIf="loginForm.controls.password.errors && loginForm.controls.password.touched"><br>Invalid Password</span>
+                </div>
+                <div class="form-group" style="margin-left:18%;">
+                    <input type="submit" class="btnSubmit" style="border-bottom: 0px;"  value="Login" [disabled]="!loginForm.valid" (click)="userlogin(true)"/>
+                </div>
+                <div class="form-group">
+                    <!-- <a href="#" class="ForgetPwd">Don't have an account?</a> -->
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6 login-form-2">
+            <h3>User Login</h3>
+            <form [formGroup]="userLoginForm"> 
+                <div class="form-group">
+                    <!-- <input type="text" class="form-control" placeholder="Your Email *" value="" /> -->
+                    <label for="email" class='fa fa-envelope'></label>
+                    <input type="email" placeholder="Email Address" formControlName="email" maxlength="40">
+                    <span class="text-danger" *ngIf="userLoginForm.controls.email.errors && userLoginForm.controls.email.touched"><br>Invalid Email Address</span>
+                </div>
+                <div class="form-group">
+                    <!-- <input type="password" class="form-control" placeholder="Your Password *" value="" /> -->
+                    <label for="password" class="fa fa-lock"> </label>
+                    <input type="password" placeholder="Password" formControlName="password" maxlength="20">
+                    <span class="text-danger" *ngIf="userLoginForm.controls.password.errors && userLoginForm.controls.password.touched"><br>Invalid Password</span>
+                </div>
+                <div class="form-group" style="margin-left:18%;">
+                    <input type="button" style="border-bottom: 0px;"  class="btnSubmit" value="Login" [disabled]="!userLoginForm.valid" (click)="userlogin(false)"/>
+                </div>
+                <div class="form-group">
+                   <span style="color: white;">Don't have an account?</span>&nbsp;  <a href="#" class="ForgetPwd" value="Login">Register here →</a>
+                </div>
             </form>
         </div>
     </div>

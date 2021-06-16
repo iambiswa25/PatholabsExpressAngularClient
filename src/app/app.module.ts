@@ -14,6 +14,8 @@ import { ViewTestsComponent } from './view-tests/view-tests.component';
 import { BookingFormComponent } from './booking-form/booking-form.component';
 import { AddTestComponent } from './add-test/add-test.component';
 import { EditTestComponent } from './edit-test/edit-test.component';
+import { NgxSpinnerModule } from "ngx-spinner";  
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { EditTestComponent } from './edit-test/edit-test.component';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

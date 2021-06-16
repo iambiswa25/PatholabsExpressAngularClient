@@ -1,10 +1,12 @@
-<div id="appContainer" class="container">
+<div id="appContainer" class="container-fluid">
   <!-- <div class="row align-items-center h-100" style="background-color: white;">
     <div class="col-md-5 col-sm-10 mx-auto"> -->
       <app-header></app-header>
       <router-outlet></router-outlet>
       <app-footer></app-footer>
-
+      <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+        <p style="color: white">Please Wait... </p>  
+        </ngx-spinner> 
       <!-- <div id="cardStyle" class="card justify-content-center">
         <div>
           <button class="btn btn-primary" [class.btn-light]="!flag" type="button" style="width: 50%;" (click)="apply('login')" >Login</button>
