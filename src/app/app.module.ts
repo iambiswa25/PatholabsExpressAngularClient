@@ -6,12 +6,28 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import {HttpClientModule} from '@angular/common/http';
+import { HomePageComponent } from './home-page/home-page.component';
+import { FooterComponent } from './home-page/footer/footer.component';
+import { HeaderComponent } from './home-page/header/header.component';
+import { MainComponent } from './home-page/main/main.component';
+import { ViewTestsComponent } from './view-tests/view-tests.component';
+import { BookingFormComponent } from './booking-form/booking-form.component';
+import { AddTestComponent } from './add-test/add-test.component';
+import { EditTestComponent } from './edit-test/edit-test.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    HomePageComponent,
+    FooterComponent,
+    HeaderComponent,
+    MainComponent,
+    ViewTestsComponent,
+    BookingFormComponent,
+    AddTestComponent,
+    EditTestComponent
   ],
   imports: [
     BrowserModule,
