@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ViewTestsComponent implements OnInit {
 
   constructor() { }
-
+  tests:any;
   ngOnInit(): void {
   }
   bookTest(){

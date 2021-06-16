@@ -21,4 +21,8 @@ export class AddTestComponent implements OnInit {
     })
 
 }
+addTest()
+{
+  console.log("from add component");
+}
 }

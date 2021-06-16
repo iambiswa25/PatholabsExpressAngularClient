@@ -20,4 +20,13 @@ export class EditTestComponent implements OnInit {
       TestPrice:["",Validators.required]
   })
  
-}}
+}
+editTest()
+{
+
+}
+bookTest()
+{
+  
+}
+}

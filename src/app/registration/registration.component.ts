@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CommonService } from '../shared/service/common.service';
 
 @Component({
   selector: 'app-registration',
@@ -12,7 +13,8 @@ export class RegistrationComponent implements OnInit {
 
   regForm!:FormGroup
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+    _commonServc:CommonService) { }
 
   ngOnInit(): void {
     this.regForm = this.fb.group({
