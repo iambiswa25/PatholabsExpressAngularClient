@@ -10,6 +10,10 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { FooterComponent } from './home-page/footer/footer.component';
 import { HeaderComponent } from './home-page/header/header.component';
 import { MainComponent } from './home-page/main/main.component';
+import { ViewTestsComponent } from './view-tests/view-tests.component';
+import { BookingFormComponent } from './booking-form/booking-form.component';
+import { AddTestComponent } from './add-test/add-test.component';
+import { EditTestComponent } from './edit-test/edit-test.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { MainComponent } from './home-page/main/main.component';
     HomePageComponent,
     FooterComponent,
     HeaderComponent,
-    MainComponent
+    MainComponent,
+    ViewTestsComponent,
+    BookingFormComponent,
+    AddTestComponent,
+    EditTestComponent
   ],
   imports: [
     BrowserModule,
