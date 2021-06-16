@@ -35,4 +35,8 @@ export class CommonService {
     let admin = isAdmin ? "true" : "false";
     localStorage.setItem('isAdmin', admin);
   }
+  public registeruser(user: any): Observable<serverResponse> {
+    let actionUrl = this.actionUrl + 'User';
+    return this.http.post<serverResponse>(actionUrl, JSON.stringify(user), { 'headers': headers })
+  }
 }
