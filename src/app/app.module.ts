@@ -16,6 +16,8 @@ import { AddTestComponent } from './add-test/add-test.component';
 import { EditTestComponent } from './edit-test/edit-test.component';
 import { NgxSpinnerModule } from "ngx-spinner";  
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Error404Component } from './error404/error404.component';
+import { AdminRegdComponent } from './admin-regd/admin-regd.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ViewTestsComponent,
     BookingFormComponent,
     AddTestComponent,
-    EditTestComponent
+    EditTestComponent,
+    Error404Component,
+    AdminRegdComponent
   ],
   imports: [
     BrowserModule,

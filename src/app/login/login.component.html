@@ -46,8 +46,8 @@
                     <input type="submit" class="btnSubmit" style="border-bottom: 0px;"  value="Login" [disabled]="!loginForm.valid" (click)="userlogin(true)"/>
                 </div>
                 <div class="form-group">
-                    <!-- <a href="#" class="ForgetPwd">Don't have an account?</a> -->
-                </div>
+                    <span style="color: #0062CC;">Don't have an account?</span>&nbsp;  <a routerLink="/adminregister" class="ForgetPwd" value="Login">Register here →</a>
+                 </div>
             </form>
         </div>
         <div class="col-md-6 login-form-2">
@@ -69,7 +69,7 @@
                     <input type="button" style="border-bottom: 0px;"  class="btnSubmit" value="Login" [disabled]="!userLoginForm.valid" (click)="userlogin(false)"/>
                 </div>
                 <div class="form-group">
-                   <span style="color: white;">Don't have an account?</span>&nbsp;  <a href="#" class="ForgetPwd" value="Login">Register here →</a>
+                   <span style="color: white;">Don't have an account?</span>&nbsp;  <a routerLink="/register" class="ForgetPwd" value="Login">Register here →</a>
                 </div>
             </form>
         </div>
