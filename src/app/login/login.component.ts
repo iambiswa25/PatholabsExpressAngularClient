@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { serverResponse } from '../entity/common/response';
+import { LoginDto } from '../entity/login/LoginDto';
 import { User_Admin } from '../entity/login/user_admin';
+import { enUserType } from '../shared/common/enums';
 import { CommonService } from '../shared/service/common.service';
 
 @Component({
@@ -16,9 +19,11 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   userLoginForm!: FormGroup;
   userDetails!: User_Admin;
+  loginDto: LoginDto = new LoginDto();
   constructor(private fb: FormBuilder,
     private common: CommonService,
-    private SpinnerService: NgxSpinnerService) { }
+    private SpinnerService: NgxSpinnerService,
+    private route: Router) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -36,13 +41,16 @@ export class LoginComponent implements OnInit {
     console.log(this.loginForm.value);
     if (isAdmin) {
       this.SpinnerService.show();
-      this.common.login(this.loginForm.value).subscribe((res: serverResponse) => {
+      Object.assign(this.loginDto, this.loginForm.value);
+       this.loginDto.UserType = enUserType.Admin;
+      this.common.login(this.loginDto).subscribe((res: serverResponse) => {
         if (res.Success == true) {
           //add rounting
-
+          window.alert("Login successfully")
         }
         else {
           this.SpinnerService.hide();
+          window.alert("Login failed")
         }
       },
         (err) => {
@@ -53,7 +61,25 @@ export class LoginComponent implements OnInit {
 
     }
     if (!isAdmin) {
-
+      this.SpinnerService.show();
+      Object.assign(this.loginDto,  this.userLoginForm.value );
+       this.loginDto.UserType = enUserType.User;
+      this.common.login(this.loginDto).subscribe((res: serverResponse) => {
+        if (res.Success == true) {
+          //add rounting
+          window.alert("Login successfully")
+          this.route.navigate(["/viewtestandpricing"])
+        }
+        else {
+          this.SpinnerService.hide();
+          window.alert("Login failed")
+        }
+      },
+        (err) => {
+          this.SpinnerService.hide();
+        }, () => {
+          this.SpinnerService.hide();
+        });
     }
   }
   adminlogin() {
