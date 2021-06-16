@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { serverResponse } from '../entity/common/response';
 import { User_Admin } from '../entity/login/user_admin';
 import { CommonService } from '../shared/service/common.service';
 
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   userLoginForm!: FormGroup;
   userDetails!: User_Admin;
-  constructor(private fb: FormBuilder, 
+  constructor(private fb: FormBuilder,
     private common: CommonService,
     private SpinnerService: NgxSpinnerService) { }
 
@@ -30,22 +31,29 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  userlogin(isAdmin:boolean) {
+  userlogin(isAdmin: boolean) {
     console.log(isAdmin)
     console.log(this.loginForm.value);
-    if(isAdmin)
-    {
-      this.SpinnerService.show(); 
-      setTimeout(() => {
-        this.SpinnerService.hide();  
-      }, 10000);
+    if (isAdmin) {
+      this.SpinnerService.show();
+      this.common.login(this.loginForm.value).subscribe((res: serverResponse) => {
+        if (res.Success == true) {
+          //add rounting
+
+        }
+        else {
+          this.SpinnerService.hide();
+        }
+      },
+        (err) => {
+          this.SpinnerService.hide();
+        }, () => {
+          this.SpinnerService.hide();
+        });
+
     }
-    if(!isAdmin)
-    {
-      this.SpinnerService.show(); 
-      setTimeout(() => {
-        this.SpinnerService.hide();  
-      }, 10000);
+    if (!isAdmin) {
+
     }
   }
   adminlogin() {
