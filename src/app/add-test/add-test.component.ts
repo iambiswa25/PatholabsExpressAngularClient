@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import{FormBuilder,FormGroup,Validator, Validators} from "@angular/forms";
+
 
 @Component({
   selector: 'app-add-test',
@@ -7,12 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddTestComponent implements OnInit {
 
-  constructor() { }
+  successMessage:string="";
+  addForm!:FormGroup
+
+  constructor(private fb:FormBuilder) { }
 
   ngOnInit(): void {
-  }
-  addTest(){
-    //logic;
-  };
+    this.addForm=this.fb.group({
+      TestName:["",[Validators.required]],
+      TestPrice:["",Validators.required]
+    })
 
+}
 }

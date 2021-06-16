@@ -5,16 +5,23 @@
             <form #frm="ngForm">
                <div class="form-group">
                     <label>Customer name</label>
-                    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="" required>
-                </div>
+                    <input type="text" class="form-control" id="name" name="name" formControlName="CustomerName" required>
+                    <span class="text-danger" *ngif="regForm.controls.CustomerName.errors && regForm.controls.CustomerName.touched"></span>
+                    <span class="text-danger" *ngif="regForm.controls.CustomerName.errors && regForm.controls.CustomerName.touched"></span>
+  
+                  </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="text" class="form-control" id="email" name="email" [(ngModel)]="" required>
-                </div>
+                    <input type="text" class="form-control" id="email" name="email" formControlName="Email" required>
+                    <span class="text-danger" *ngif="regForm.controls.Email.errors && regForm.controls.Email.touched"></span>
+  
+                  </div>
                 <div class="form-group">
                   <label>Date of Appointment</label>
-                  <input type="text" class="form-control" id="date" name="date" [(ngModel)]="" required>
-                </div>
+                  <input type="text" class="form-control" id="date" name="date" formControlName="DateofAppointment" required>
+                  <span class="text-danger" *ngif="regForm.controls.Email.errors && regForm.controls.DateofAppointment.touched"></span>
+  
+              </div>
                 
   
                 <div class="form-group">

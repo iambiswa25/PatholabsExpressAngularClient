@@ -5,11 +5,11 @@
             <form #frm="ngForm">
                <div class="form-group">
                     <label>Test Name</label>
-                    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="" required>
+                    <input type="text" class="form-control" id="name" name="name" formControlName="TestName" required>
                 </div>
                 <div class="form-group">
                     <label>Test Price</label>
-                    <input type="text" class="form-control" id="testprice" name="testprice" [(ngModel)]="" required>
+                    <input type="text" class="form-control" id="testprice" name="testprice" formControlName="TestPrice" required>
                 </div>
                 
                 

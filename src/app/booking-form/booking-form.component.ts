@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import{FormBuilder,FormGroup,Validator, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-booking-form',
@@ -7,11 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookingFormComponent implements OnInit {
 
+  successMessage:string="";
+  bookForm!:FormGroup
 
-  constructor() { }
+  
+  constructor(private fb:FormBuilder ) {}
 
   ngOnInit(): void {
-  }
-  bookAppointment(){};
+    this.bookForm=this.fb.group({
+      CustomerName:["",[Validators.required]],
+      Email:["",Validators.required],
+      DateofAppointment:["",Validators.required]
 
+
+    })
+  }
+
+
+bookAppointment(){};
 }

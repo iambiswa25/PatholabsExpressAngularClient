@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import{FormBuilder,FormGroup,Validator, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-edit-test',
@@ -7,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditTestComponent implements OnInit {
 
-  constructor() { }
+  successMessage:string="";
+  editform!:FormGroup
+
+  constructor(private fb:FormBuilder) { }
 
   ngOnInit(): void {
-  }
-
-  edit(){};
-}
+    this.editform=this.fb.group({
+      TestId:["",[Validators.required]],
+      TestName:["",Validators.required],
+      TestPrice:["",Validators.required]
+  })
+ 
+}}
