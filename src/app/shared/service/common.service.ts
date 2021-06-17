@@ -39,4 +39,14 @@ export class CommonService {
     let actionUrl = this.actionUrl + 'User';
     return this.http.post<serverResponse>(actionUrl, JSON.stringify(user), { 'headers': headers })
   }
+  public getAllTestItem(): Observable<serverResponse> {
+    let actionUrl = this.actionUrl+ 'Test_Details' + '/Get';
+    return this.http.get<serverResponse>(actionUrl,{ 'headers': headers })
+  }
+
+  public addTest(test: any): Observable<serverResponse> {
+    let actionUrl = this.actionUrl +'Test_Details'+ '/Login';
+    return this.http.post<serverResponse>(actionUrl, JSON.stringify(test), { 'headers': headers })
+  }
+
 }

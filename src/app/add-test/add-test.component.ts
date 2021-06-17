@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import{FormBuilder,FormGroup,Validator, Validators} from "@angular/forms";
+import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { serverResponse } from '../entity/common/response';
+import { CommonService } from '../shared/service/common.service';
 
 
 @Component({
@@ -12,7 +16,9 @@ export class AddTestComponent implements OnInit {
   successMessage:string="";
   addForm!:FormGroup
 
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder, private common: CommonService,
+    private SpinnerService: NgxSpinnerService,
+    private route: Router) { }
 
   ngOnInit(): void {
     this.addForm=this.fb.group({
@@ -23,6 +29,22 @@ export class AddTestComponent implements OnInit {
 }
 addTest()
 {
-  console.log("from add component");
+  this.SpinnerService.show();
+  // Object.assign(this.loginDto, this.loginForm.value);
+  //  this.loginDto.UserType = enUserType.Admin;
+  this.common.login(this.addForm).subscribe((res: serverResponse) => {
+    if (res.Success == true) {
+      //add rounting
+      window.alert("New test added successfully.")
+    }
+    else{
+      alert("Failed");
+    }
+  },
+    (err) => {
+      this.SpinnerService.hide();
+    }, () => {
+      this.SpinnerService.hide();
+    });
 }
 }

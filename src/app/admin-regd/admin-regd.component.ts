@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { serverResponse } from '../entity/common/response';
+import { UserDto } from '../entity/Registration/registration';
+import { enUserType } from '../shared/common/enums';
+import { CommonService } from '../shared/service/common.service';
 
 @Component({
   selector: 'app-admin-regd',
@@ -9,9 +14,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AdminRegdComponent implements OnInit {
 
   successMessage: string = ""
-
+  regdData: UserDto = new UserDto();
   regForm!: FormGroup
-  constructor(private fb: FormBuilder,) { }
+  constructor(private fb: FormBuilder,private common: CommonService,
+    private SpinnerService: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.regForm = this.fb.group({
@@ -26,6 +32,22 @@ export class AdminRegdComponent implements OnInit {
     })
   }
   register() {
-    this.successMessage = "Successfully Registered...";
+    this.SpinnerService.show();
+    Object.assign(this.regdData, this.regForm.value);
+    this.regdData.UserType = enUserType.Admin;
+    this.common.registeruser(this.regdData).subscribe((res: serverResponse) => {
+      if (res.Success == true) {
+        //add rounting
+        window.alert("User Registered Successfully.");
+      }
+      else {
+        this.SpinnerService.hide();
+      }
+    },
+      (err) => {
+        this.SpinnerService.hide();
+      }, () => {
+        this.SpinnerService.hide();
+      });
   }
 }

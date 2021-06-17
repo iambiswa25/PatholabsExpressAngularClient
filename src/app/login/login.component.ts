@@ -37,8 +37,8 @@ export class LoginComponent implements OnInit {
   }
 
   userlogin(isAdmin: boolean) {
-    console.log(isAdmin)
-    console.log(this.loginForm.value);
+    // console.log(isAdmin)
+    // console.log(this.loginForm.value);
     if (isAdmin) {
       this.SpinnerService.show();
       Object.assign(this.loginDto, this.loginForm.value);
