@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Update Appointment Details</h1>
+            <form [formGroup]="updateForm">
+               <div class="form-group">
+                    <label>Customer name</label>
+                    <input type="text" class="form-control" id="name" name="name" formControlName="CustomerName" required>
+  
+                  </div>
+                
+                <div class="form-group">
+                  <label>Date of Appointment</label>
+                  <input type="text" class="form-control" id="date" name="date" formControlName="DateofAppointment" required>
+  
+              </div>
+                
+  
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" (click)="UpdateAppointment();" [disabled]="!updateForm.valid" >Book_Appointment</button>
+                </div>
+  
+            </form>
+        </div>
+    </div>
+  </div>

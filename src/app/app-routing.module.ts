@@ -9,6 +9,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ViewTestsComponent } from './view-tests/view-tests.component';
+import { BookedAppointmentComponent } from './booked-appointment/booked-appointment.component';
 
 const routes: Routes = [
    {path:'',redirectTo:'home', pathMatch: 'full' },
@@ -17,10 +18,11 @@ const routes: Routes = [
   { path:"login" , component:LoginComponent},
   { path:"register" , component:RegistrationComponent},
   {path:"adminregister" , component:AdminRegdComponent,},
-  { path:"bookedappointment" , component:BookingFormComponent},
+  { path:"bookingappointment" , component:BookingFormComponent},
   { path:"addtest" , component:AddTestComponent},
   { path:"edittest" , component:EditTestComponent},
   { path:"viewtest" , component:ViewTestsComponent},
+  { path:"bookedappointment" , component:BookedAppointmentComponent},
   {
     path: "404",
     component: Error404Component

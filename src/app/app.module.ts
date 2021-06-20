@@ -18,6 +18,10 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Error404Component } from './error404/error404.component';
 import { AdminRegdComponent } from './admin-regd/admin-regd.component';
+import { BookedAppointmentComponent } from './booked-appointment/booked-appointment.component';
+import { UpdateUserDetailsComponent } from './update-user-details/update-user-details.component';
+import { UpdateAppointmentComponent } from './update-appointment/update-appointment.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,11 @@ import { AdminRegdComponent } from './admin-regd/admin-regd.component';
     AddTestComponent,
     EditTestComponent,
     Error404Component,
-    AdminRegdComponent
+    AdminRegdComponent,
+    BookedAppointmentComponent,
+    UpdateAppointmentComponent,
+    UpdateUserDetailsComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,
