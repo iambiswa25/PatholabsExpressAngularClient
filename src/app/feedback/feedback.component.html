@@ -1,0 +1,36 @@
+
+
+<div class="container-fluid background">
+    <div class="row">
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+              <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Thankyou for making an Appointment</h1>
+                <p class="lead text-muted">Please give your Feedback </p>
+                
+              </div>
+            </div>
+          </section>
+        <div class="col-md-12">
+            <form [formGroup]="feedForm" (ngSubmit)="submit()">
+
+                <div class="form-group">
+                    <label for="name" class="fa fa-user"></label>
+                    <input class="form-control " type="text" placeholder="Enter Feedback" formControlName="feedback" tabindex="1">
+                 
+                                
+                    <span class="text-danger" *ngIf="feedForm.controls.name.errors && feedForm.controls.name.touched">
+                        <br>Feedback is Required
+                    </span>
+                </div>
+                <div class="text-center">
+                    <button id="submitButton" type="submit" class="btn btn-primary" [disabled]="!feedForm.valid" routerLink="/bookedappointment">
+                        Submit
+                    </button>
+                </div>
+
+                
+            </form>
+        </div>
+    </div>
+</div>

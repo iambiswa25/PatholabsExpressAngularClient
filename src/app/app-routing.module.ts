@@ -10,6 +10,8 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ViewTestsComponent } from './view-tests/view-tests.component';
 import { BookedAppointmentComponent } from './booked-appointment/booked-appointment.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { ViewAppointmentComponent } from './view-appointment/view-appointment.component';
 
 const routes: Routes = [
    {path:'',redirectTo:'home', pathMatch: 'full' },
@@ -23,6 +25,8 @@ const routes: Routes = [
   { path:"edittest" , component:EditTestComponent},
   { path:"viewtest" , component:ViewTestsComponent},
   { path:"bookedappointment" , component:BookedAppointmentComponent},
+  { path:"feedback", component:FeedbackComponent},
+  { path:"viewappointment", component:ViewAppointmentComponent},
   {
     path: "404",
     component: Error404Component
