@@ -15,6 +15,7 @@ import { ViewAppointmentComponent } from './view-appointment/view-appointment.co
 import { UpdateUserDetailsComponent } from './update-user-details/update-user-details.component';
 import { UpdateAppointmentComponent } from './update-appointment/update-appointment.component';
 import { HelpDeskComponent } from './help-desk/help-desk.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 const routes: Routes = [
    {path:'',redirectTo:'home', pathMatch: 'full' },
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path:"updateuserdetail", component:UpdateUserDetailsComponent},
   { path:"updateappointmentdetail", component:UpdateAppointmentComponent},
   { path:"helpdesk", component:HelpDeskComponent},
+  {path:"userdetails", component:UserDetailsComponent},
   
   {
     path: "404",
