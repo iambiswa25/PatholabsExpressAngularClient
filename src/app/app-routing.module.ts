@@ -12,6 +12,9 @@ import { ViewTestsComponent } from './view-tests/view-tests.component';
 import { BookedAppointmentComponent } from './booked-appointment/booked-appointment.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { ViewAppointmentComponent } from './view-appointment/view-appointment.component';
+import { UpdateUserDetailsComponent } from './update-user-details/update-user-details.component';
+import { UpdateAppointmentComponent } from './update-appointment/update-appointment.component';
+import { HelpDeskComponent } from './help-desk/help-desk.component';
 
 const routes: Routes = [
    {path:'',redirectTo:'home', pathMatch: 'full' },
@@ -19,7 +22,7 @@ const routes: Routes = [
   { path:"viewtestandpricing" , component:ViewTestsComponent},
   { path:"login" , component:LoginComponent},
   { path:"register" , component:RegistrationComponent},
-  {path:"adminregister" , component:AdminRegdComponent,},
+  { path:"adminregister" , component:AdminRegdComponent,},
   { path:"bookingappointment" , component:BookingFormComponent},
   { path:"addtest" , component:AddTestComponent},
   { path:"edittest" , component:EditTestComponent},
@@ -27,6 +30,10 @@ const routes: Routes = [
   { path:"bookedappointment" , component:BookedAppointmentComponent},
   { path:"feedback", component:FeedbackComponent},
   { path:"viewappointment", component:ViewAppointmentComponent},
+  { path:"updateuserdetail", component:UpdateUserDetailsComponent},
+  { path:"updateappointmentdetail", component:UpdateAppointmentComponent},
+  { path:"helpdesk", component:HelpDeskComponent},
+  
   {
     path: "404",
     component: Error404Component

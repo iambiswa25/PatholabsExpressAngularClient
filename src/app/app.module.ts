@@ -24,6 +24,7 @@ import { UpdateAppointmentComponent } from './update-appointment/update-appointm
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { ViewAppointmentComponent } from './view-appointment/view-appointment.component';
+import { HelpDeskComponent } from './help-desk/help-desk.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ViewAppointmentComponent } from './view-appointment/view-appointment.co
     UpdateUserDetailsComponent,
     UserDetailsComponent,
     FeedbackComponent,
-    ViewAppointmentComponent
+    ViewAppointmentComponent,
+    HelpDeskComponent
   ],
   imports: [
     BrowserModule,

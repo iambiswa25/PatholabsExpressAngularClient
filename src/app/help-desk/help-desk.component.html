@@ -1,0 +1,48 @@
+
+
+
+<div class="container-fluid background">
+    <div class="row">
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+              <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Please raise your issue</h1>
+                
+                
+              </div>
+            </div>
+          </section>
+        <div class="col-md-12">
+            <form [formGroup]="helpForm" (ngSubmit)="submit()">
+
+
+                <div class="form-group">
+                    <label for="name" class="fa fa-user"></label>
+                    <input class="form-control " type="text" placeholder="Enter Email" formControlName="email" tabindex="1">
+                 
+                                
+                    <span class="text-danger" *ngIf="helpForm.controls.email.errors && helpForm.controls.email.touched">
+                        <br>Email is Required
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <label for="name" class="fa fa-user"></label>
+                    <input class="form-control " type="text" placeholder="Enter Issue" formControlName="issue" tabindex="1">
+                 
+                                
+                    <span class="text-danger" *ngIf="helpForm.controls.issue.errors && helpForm.controls.issue.touched">
+                        <br>Issue is Required
+                    </span>
+                </div>
+                <div class="text-center">
+                    <button id="submitButton" type="submit" class="btn btn-primary" [disabled]="!helpForm.valid" routerLink="/home">
+                        Submit
+                    </button>
+                </div>
+
+                
+            </form>
+        </div>
+    </div>
+</div>
