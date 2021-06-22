@@ -39,5 +39,8 @@ export class ViewTestsComponent implements OnInit {
   bookTest(){
    
   }
+  editTest(){
+    
+  }
 
 }
