@@ -1,3 +1,4 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import{FormBuilder,FormGroup,Validator, Validators} from "@angular/forms";
 import { Router } from '@angular/router';
@@ -32,10 +33,11 @@ addTest()
   this.SpinnerService.show();
   // Object.assign(this.loginDto, this.loginForm.value);
   //  this.loginDto.UserType = enUserType.Admin;
-  this.common.login(this.addForm).subscribe((res: serverResponse) => {
+  this.common.addTest(this.addForm.value).subscribe((res: serverResponse) => {
     if (res.Success == true) {
       //add rounting
       window.alert("New test added successfully.")
+      this.addForm.setValue({TestName:"",TestPrice:""})
     }
     else{
       alert("Failed");

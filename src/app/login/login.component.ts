@@ -20,33 +20,37 @@ export class LoginComponent implements OnInit {
   userLoginForm!: FormGroup;
   userDetails!: User_Admin;
   loginDto: LoginDto = new LoginDto();
+  
   constructor(private fb: FormBuilder,
     private common: CommonService,
     private SpinnerService: NgxSpinnerService,
     private route: Router) { }
 
   ngOnInit(): void {
-    this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.pattern("^([a-z0-9_\.\-])+\@(([a-z0-9\-])+\.)+([a-z0-9]{2,5})+$")]],
-      password: ['', [Validators.required, Validators.pattern("[A-Za-z0-9@!_]{6,}")]]
-    })
+    //this.loginForm = this.fb.group({
+      //email: ['', [Validators.required, Validators.pattern("^([a-z0-9_\.\-])+\@(([a-z0-9\-])+\.)+([a-z0-9]{2,5})+$")]],
+      //password: ['', [Validators.required, Validators.pattern("[A-Za-z0-9@!_]{6,}")]]
+    //})
     this.userLoginForm = this.fb.group({
       email: ['', [Validators.required, Validators.pattern("^([a-z0-9_\.\-])+\@(([a-z0-9\-])+\.)+([a-z0-9]{2,5})+$")]],
-      password: ['', [Validators.required, Validators.pattern("[A-Za-z0-9@!_]{6,}")]]
+      password: ['', [Validators.required, Validators.pattern("[A-Za-z0-9@!_]{6,}")]],
+      usertype:['',Validators.required]
     })
   }
 
   userlogin(isAdmin: boolean) {
+    
     // console.log(isAdmin)
     // console.log(this.loginForm.value);
-    if (isAdmin) {
+    if (this.userLoginForm.value.usertype=="Admin") {
       this.SpinnerService.show();
-      Object.assign(this.loginDto, this.loginForm.value);
+      Object.assign(this.loginDto, this.userLoginForm.value);
        this.loginDto.UserType = enUserType.Admin;
       this.common.login(this.loginDto).subscribe((res: serverResponse) => {
         if (res.Success == true) {
           //add rounting
           window.alert("Login successfully")
+          this.route.navigate(["/viewappointment"])
         }
         else {
           this.SpinnerService.hide();
@@ -60,7 +64,7 @@ export class LoginComponent implements OnInit {
         });
 
     }
-    if (!isAdmin) {
+    else  {
       this.SpinnerService.show();
       Object.assign(this.loginDto,  this.userLoginForm.value );
        this.loginDto.UserType = enUserType.User;

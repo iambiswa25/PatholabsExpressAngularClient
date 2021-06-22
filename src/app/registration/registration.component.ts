@@ -5,6 +5,7 @@ import { serverResponse } from '../entity/common/response';
 import { UserDto } from '../entity/Registration/registration';
 import { enUserType } from '../shared/common/enums';
 import { CommonService } from '../shared/service/common.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -19,7 +20,8 @@ export class RegistrationComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private common: CommonService,
-    private SpinnerService: NgxSpinnerService) { }
+    private SpinnerService: NgxSpinnerService,
+    private route: Router) { }
   regdData: UserDto = new UserDto();
 
   ngOnInit(): void {
@@ -42,6 +44,7 @@ export class RegistrationComponent implements OnInit {
       if (res.Success == true) {
         //add rounting
         window.alert("User Registered Successfully.");
+        this.route.navigate(["/login"])
       }
       else {
         this.SpinnerService.hide();
